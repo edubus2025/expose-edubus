@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Présentation EduBus - Plateforme Éducative Innovante</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            padding: 40px 0;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .header .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: white;
+            padding: 10px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        .slide {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .slide h2 {
+            color: #4a5568;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .slide h3 {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin: 25px 0 15px;
+        }
+
+        .slide p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-card .label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .tech-item {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 500;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .benefits-list li {
+            background: #f7fafc;
+            margin: 10px 0;
+            padding: 15px;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .benefits-list li::before {
+            content: "✅ ";
+            margin-right: 10px;
+        }
+
+        .demo-section {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .demo-section h3 {
+            color: #d69e2e;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .demo-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .demo-link {
+            background: white;
+            color: #d69e2e;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .demo-link:hover {
+            transform: translateY(-3px);
+        }
+
+        .contact-info {
+            background: #2d3748;
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            color: #63b3ed;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .slide {
+                padding: 25px;
+            }
+            
+            .slide h2 {
+                font-size: 2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .print-version {
+            display: none;
+        }
+
+        @media print {
+            .print-version {
+                display: block;
+            }
+            
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .slide {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- En-tête -->
+        <div class="header">
+            <div class="logo">
+                <img src="/images/edubus-logo.png" alt="EduBus Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%;">
+            </div>
+            <h1>EduBus</h1>
+            <p class="subtitle">Transformez vos trajets en moments d'apprentissage</p>
+            <p style="font-size: 1.1rem; opacity: 0.8;">Plateforme Éducative Innovante pour l'Enseignement Marocain</p>
+        </div>
+
+        <!-- Slide 1: Introduction et Contexte -->
+        <div class="slide">
+            <h2>🎯 Introduction et Contexte</h2>
+            <h3>Qui sommes-nous ?</h3>
+            <p>
+                <strong>EduBus</strong> est une plateforme éducative innovante développée par l'<strong>Association Ighil pour le Développement de la Population Montagnarde (AIDPM)</strong>, basée à Kelaa M'gouna, en partenariat avec la <strong>Direction Provinciale du Ministère de l'Éducation Nationale du Préscolaire et des Sports_Tinghir</strong> et avec le soutien de l'<strong>Initiative Nationale pour le Développement Humain (INDH)</strong>. Notre mission est de démocratiser l'accès à l'éducation de qualité pour tous les élèves marocains, particulièrement ceux des zones rurales et montagnardes.
+            </p>
+            
+            <h3>Le Contexte Éducatif Marocain</h3>
+            <p>
+                Le système éducatif marocain fait face à plusieurs défis : disparités géographiques, manque de ressources pédagogiques modernes, et difficultés d'accès à l'éducation de qualité dans les zones reculées. EduBus répond à ces enjeux en proposant une solution technologique accessible et adaptée aux réalités locales.
+            </p>
+
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="number">7</div>
+                    <div class="label">Matières Couvertes</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">6</div>
+                    <div class="label">Niveaux Scolaires</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">24/7</div>
+                    <div class="label">Accès Disponible</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">100%</div>
+                    <div class="label">Gratuit</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Problématique -->
+        <div class="slide">
+            <h2>❗ Problématique</h2>
+            
+            <h3>Les Défis de l'Éducation Moderne</h3>
+            <ul class="benefits-list">
+                <li><strong>Inégalités géographiques :</strong> Les élèves des zones rurales ont un accès limité aux ressources éducatives de qualité</li>
+                <li><strong>Manque de ressources multimédia :</strong> Peu de contenus pédagogiques interactifs et engageants</li>
+                <li><strong>Temps de transport :</strong> Les longs trajets scolaires représentent du temps perdu</li>
+                <li><strong>Suivi personnalisé insuffisant :</strong> Difficulté à adapter l'enseignement aux besoins individuels</li>
+                <li><strong>Engagement des élèves :</strong> Méthodes d'enseignement traditionnelles parfois peu motivantes</li>
+                <li><strong>Formation des enseignants :</strong> Besoin d'outils modernes pour enrichir les pratiques pédagogiques</li>
+            </ul>
+
+            <h3>Notre Vision</h3>
+            <p>
+                <em>"Transformer chaque moment de transport en opportunité d'apprentissage, et rendre l'éducation de qualité accessible à tous, partout au Maroc."</em>
+            </p>
+        </div>
+
+        <!-- Slide 3: Solution EduBus -->
+        <div class="slide">
+            <h2>💡 Solution EduBus</h2>
+            
+            <h3>Une Plateforme Éducative Complète</h3>
+            <p>
+                EduBus est une application web progressive qui transforme l'apprentissage en proposant des contenus pédagogiques multimédia accessibles depuis n'importe quel appareil connecté. Notre approche innovante combine technologie moderne et pédagogie adaptée au contexte marocain.
+            </p>
+
+            <h3>Concept Unique : "Apprendre en Chemin"</h3>
+            <p>
+                Le nom "EduBus" symbolise l'idée de transformer les trajets quotidiens (bus scolaire, transport public, etc.) en moments d'apprentissage productifs. Mais au-delà du transport, c'est une métaphore pour rendre l'éducation mobile, flexible et accessible partout.
+            </p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">🎥</div>
+                    <h4>Contenus Multimédia</h4>
+                    <p>Vidéos et audios pédagogiques de haute qualité</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🧠</div>
+                    <h4>Quiz Interactifs</h4>
+                    <p>Évaluations variées et engageantes</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📊</div>
+                    <h4>Suivi Personnalisé</h4>
+                    <p>Tableaux de bord et analytics détaillés</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🌐</div>
+                    <h4>Accès Universel</h4>
+                    <p>Compatible tous appareils</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Fonctionnalités Principales -->
+        <div class="slide">
+            <h2>🚀 Fonctionnalités Principales</h2>
+            
+            <h3>Pour les Élèves</h3>
+            <ul class="benefits-list">
+                <li><strong>Bibliothèque de contenus :</strong> Accès à des centaines de leçons vidéo et audio</li>
+                <li><strong>Quiz adaptatifs :</strong> 7 types de questions différents (QCM, Vrai/Faux, Appariement, etc.)</li>
+                <li><strong>Tableau de bord personnel :</strong> Suivi des progrès, scores et badges</li>
+                <li><strong>Filtres intelligents :</strong> Recherche par niveau, matière et mots-clés</li>
+                <li><strong>Interface multilingue :</strong> Support du français et de l'arabe</li>
+            </ul>
+
+            <h3>Pour les Enseignants</h3>
+            <ul class="benefits-list">
+                <li><strong>Création de contenus :</strong> Outils intuitifs pour ajouter vidéos, audios et quiz</li>
+                <li><strong>Gestion des élèves :</strong> Suivi détaillé des performances individuelles</li>
+                <li><strong>Analytics avancés :</strong> Statistiques sur l'engagement et les résultats</li>
+                <li><strong>Bibliothèque partagée :</strong> Accès aux contenus créés par la communauté</li>
+                <li><strong>Outils d'évaluation :</strong> Création de quiz complexes et variés</li>
+            </ul>
+
+            <h3>Matières Couvertes</h3>
+            <div class="tech-stack">
+                <div class="tech-item">🇲🇦 Arabe</div>
+                <div class="tech-item">🇫🇷 Français</div>
+                <div class="tech-item">🇬🇧 Anglais</div>
+                <div class="tech-item">🏛️ Histoire-Géographie</div>
+                <div class="tech-item">🤔 Philosophie</div>
+                <div class="tech-item">🎯 Orientation scolaire</div>
+                <div class="tech-item">💼 Soft-skills</div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Architecture Technique -->
+        <div class="slide">
+            <h2>⚙️ Architecture Technique</h2>
+            
+            <h3>Technologies Utilisées</h3>
+            <div class="tech-stack">
+                <div class="tech-item">Next.js 14</div>
+                <div class="tech-item">React 18</div>
+                <div class="tech-item">TypeScript</div>
+                <div class="tech-item">Tailwind CSS</div>
+                <div class="tech-item">Django REST</div>
+                <div class="tech-item">PostgreSQL</div>
+                <div class="tech-item">Supabase</div>
+                <div class="tech-item">Vercel</div>
+            </div>
+
+            <h3>Architecture Moderne et Scalable</h3>
+            <p>
+                <strong>Frontend :</strong> Application web progressive (PWA) développée avec Next.js et React, offrant une expérience utilisateur fluide et responsive sur tous les appareils.
+            </p>
+            <p>
+                <strong>Backend :</strong> API REST robuste construite avec Django, garantissant sécurité, performance et évolutivité.
+            </p>
+            <p>
+                <strong>Base de données :</strong> PostgreSQL pour la fiabilité et Supabase pour l'authentification et le temps réel.
+            </p>
+            <p>
+                <strong>Déploiement :</strong> Infrastructure cloud moderne avec Vercel (frontend) et PythonAnywhere (backend).
+            </p>
+
+            <h3>Avantages Techniques</h3>
+            <ul class="benefits-list">
+                <li><strong>Performance optimisée :</strong> Chargement rapide et navigation fluide</li>
+                <li><strong>Sécurité renforcée :</strong> Authentification JWT et protection des données</li>
+                <li><strong>Responsive design :</strong> Adaptation parfaite à tous les écrans</li>
+                <li><strong>PWA :</strong> Installation possible comme application native</li>
+                <li><strong>SEO optimisé :</strong> Référencement naturel amélioré</li>
+            </ul>
+        </div>
+
+        <!-- Slide 6: Public Cible et Impact -->
+        <div class="slide">
+            <h2>🎯 Public Cible et Impact</h2>
+            
+            <h3>Utilisateurs Principaux</h3>
+            
+            <div class="features-grid">
+                <div class="feature-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <div class="icon">👨‍🎓</div>
+                    <h4>Élèves</h4>
+                    <p>Collégiens et lycéens de tous niveaux cherchant à améliorer leurs résultats scolaires</p>
+                </div>
+                <div class="feature-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <div class="icon">👩‍🏫</div>
+                    <h4>Enseignants</h4>
+                    <p>Professeurs souhaitant enrichir leurs cours avec des outils numériques modernes</p>
+                </div>
+                <div class="feature-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <div class="icon">👨‍👩‍👧‍👦</div>
+                    <h4>Parents</h4>
+                    <p>Familles désirant accompagner la scolarité de leurs enfants</p>
+                </div>
+                <div class="feature-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                    <div class="icon">🏫</div>
+                    <h4>Établissements</h4>
+                    <p>Écoles et institutions éducatives modernisant leurs méthodes</p>
+                </div>
+            </div>
+
+            <h3>Impact Social et Éducatif</h3>
+            <ul class="benefits-list">
+                <li><strong>Réduction des inégalités :</strong> Accès équitable à l'éducation de qualité</li>
+                <li><strong>Amélioration des résultats :</strong> Méthodes pédagogiques innovantes et engageantes</li>
+                <li><strong>Optimisation du temps :</strong> Apprentissage pendant les trajets et temps libres</li>
+                <li><strong>Développement numérique :</strong> Familiarisation avec les outils technologiques</li>
+                <li><strong>Autonomie d'apprentissage :</strong> Développement de l'autodiscipline et de la motivation</li>
+                <li><strong>Soutien aux enseignants :</strong> Outils modernes pour enrichir les pratiques pédagogiques</li>
+            </ul>
+        </div>
+
+        <!-- Slide 7: Démonstration -->
+        <div class="demo-section">
+            <h3>🎬 Démonstration en Direct</h3>
+            <p style="text-align: center; margin-bottom: 20px;">
+                Découvrez EduBus en action à travers nos guides utilisateurs interactifs et notre plateforme de démonstration.
+            </p>
+            
+            <div class="demo-links">
+                <a href="https://dptinghir.pythonanywhere.com/static/guides/guide_EduBus_eleveVF.html" target="_blank" class="demo-link">
+                    📘 Guide Élève
+                </a>
+                <a href="https://dptinghir.pythonanywhere.com/static/guides/guide_EduBus_enseignantVF.html" target="_blank" class="demo-link">
+                    🧑‍🏫 Guide Enseignant
+                </a>
+                <a href="https://edubus-frontend.vercel.app/login" target="_blank" class="demo-link">
+                    🚀 Plateforme Live
+                </a>
+            </div>
+        </div>
+
+        <!-- Slide 8: Avantages Concurrentiels -->
+        <div class="slide">
+            <h2>🏆 Avantages Concurrentiels</h2>
+            
+            <h3>Ce qui nous distingue</h3>
+            <ul class="benefits-list">
+                <li><strong>Adaptation locale :</strong> Contenu spécialement conçu pour le système éducatif marocain</li>
+                <li><strong>Multilingue natif :</strong> Support parfait du français et de l'arabe</li>
+                <li><strong>Accessibilité maximale :</strong> Fonctionne sur tous les appareils, même anciens</li>
+                <li><strong>Gratuité totale :</strong> Aucun coût pour les utilisateurs finaux</li>
+                <li><strong>Communauté locale :</strong> Développé par et pour les Marocains</li>
+                <li><strong>Support technique :</strong> Assistance en français et arabe</li>
+                <li><strong>Évolution continue :</strong> Mises à jour régulières basées sur les retours utilisateurs</li>
+            </ul>
+
+            <h3>Comparaison avec les Solutions Existantes</h3>
+            <div class="stats-container">
+                <div class="stat-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <div class="number">✅</div>
+                    <div class="label">Gratuit</div>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <div class="number">✅</div>
+                    <div class="label">Hors Ligne</div>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <div class="number">✅</div>
+                    <div class="label">Multilingue</div>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                    <div class="number">✅</div>
+                    <div class="label">Local</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Perspectives d'Avenir -->
+        <div class="slide">
+            <h2>🔮 Perspectives d'Avenir</h2>
+            
+            <h3>Roadmap de Développement</h3>
+            
+            <h4>📅 Court terme (3-6 mois)</h4>
+            <ul class="benefits-list">
+                <li><strong>Extension du contenu :</strong> Ajout de nouvelles matières (Mathématiques, Sciences)</li>
+                <li><strong>Gamification :</strong> Système de badges et récompenses avancé</li>
+                <li><strong>Mode collaboratif :</strong> Travail en groupe et projets partagés</li>
+                <li><strong>Application mobile native :</strong> Apps iOS et Android dédiées</li>
+            </ul>
+
+            <h4>📅 Moyen terme (6-12 mois)</h4>
+            <ul class="benefits-list">
+                <li><strong>Intelligence artificielle :</strong> Recommandations personnalisées et adaptive learning</li>
+                <li><strong>Réalité augmentée :</strong> Expériences immersives pour certaines matières</li>
+                <li><strong>Partenariats institutionnels :</strong> Collaboration avec le Ministère de l'Éducation</li>
+                <li><strong>Certification :</strong> Délivrance de certificats de compétences</li>
+            </ul>
+
+            <h4>📅 Long terme (1-2 ans)</h4>
+            <ul class="benefits-list">
+                <li><strong>Expansion régionale :</strong> Déploiement dans d'autres provinces de la région Draa-Tafilalet</li>
+                <li><strong>Plateforme B2B :</strong> Solutions pour les établissements scolaires</li>
+                <li><strong>Formation professionnelle :</strong> Extension vers la formation continue</li>
+                <li><strong>Écosystème complet :</strong> Marketplace de contenus éducatifs</li>
+                <li><strong>Mode hors ligne :</strong> Téléchargement de contenus pour usage sans connexion internet</li>
+            </ul>
+        </div>
+
+        <!-- Slide 10: Modèle Économique -->
+        <div class="slide">
+    <h2>💰 Financement et Partenaires Institutionnels</h2>
+    
+    <h3>Un Projet d'Intérêt Public</h3>
+    <p>
+        EduBus est une initiative <strong>100% gratuite</strong> développée dans le cadre d'un partenariat public-associatif exemplaire, démontrant l'engagement du Maroc pour la démocratisation de l'éducation numérique.
+    </p>
+
+    <h3>Partenaires Institutionnels</h3>
+    <div class="features-grid">
+        <div class="feature-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div class="icon">🏛️</div>
+            <h4>AIDPM</h4>
+            <p>Association Ighil pour le Développement de la Population Montagnarde - Porteur du projet</p>
+        </div>
+        <div class="feature-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+            <div class="icon">🎓</div>
+            <h4>Direction Provinciale</h4>
+            <p>Ministère de l'Éducation Nationale du Préscolaire et des Sports - Coordination pédagogique</p>
+        </div>
+        <div class="feature-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+            <div class="icon">🤝</div>
+            <h4>INDH</h4>
+            <p>Initiative Nationale pour le Développement Humain - Financement et soutien</p>
+        </div>
+        <div class="feature-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+            <div class="icon">🌍</div>
+            <h4>Communauté</h4>
+            <p>Enseignants, élèves et familles - Utilisateurs et contributeurs</p>
+        </div>
+    </div>
+
+    <h3>Engagement de Gratuité</h3>
+    <ul class="benefits-list">
+        <li><strong>Accès totalement gratuit :</strong> Aucun coût pour les utilisateurs, jamais</li>
+        <li><strong>Pas de publicité :</strong> Expérience d'apprentissage pure et concentrée</li>
+        <li><strong>Égalité d'accès :</strong> Même qualité de service pour tous les utilisateurs</li>
+        <li><strong>Mission sociale :</strong> Réduction des inégalités éducatives</li>
+        <li><strong>Durabilité assurée :</strong> Financement public pérenne</li>
+    </ul>
+</div>
+
+        <!-- Slide 11: Équipe et Partenaires -->
+        <div class="slide">
+            <h2>👥 Équipe et Partenaires</h2>
+            
+            <h3>Association AIDPM</h3>
+            <p>
+                L'<strong>Association Ighil pour le Développement de la Population Montagnarde</strong> est une organisation à but non lucratif basée à Kelaa M'gouna, dédiée au développement socio-économique des communautés rurales et montagnardes du Maroc.
+            </p>
+
+            <h3>Notre Mission</h3>
+            <ul class="benefits-list">
+                <li><strong>Éducation pour tous :</strong> Démocratiser l'accès à l'éducation de qualité</li>
+                <li><strong>Innovation sociale :</strong> Utiliser la technologie au service du développement</li>
+                <li><strong>Développement local :</strong> Renforcer les capacités des communautés rurales</li>
+                <li><strong>Préservation culturelle :</strong> Valoriser le patrimoine local et les langues</li>
+            </ul>
+
+            <h3>Partenaires et Soutiens</h3>
+            <div class="features-grid">
+                <div class="feature-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <div class="icon">🏫</div>
+                    <h4>Établissements Scolaires</h4>
+                    <p>Collèges et lycées de la province-Tinghir</p>
+                </div>
+                <div class="feature-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <div class="icon">👨‍🏫</div>
+                    <h4>Corps Enseignant</h4>
+                    <p>Professeurs contributeurs et testeurs</p>
+                </div>
+                <div class="feature-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <div class="icon">💻</div>
+                    <h4>Développeurs</h4>
+                    <p>Équipe technique locale et nationale</p>
+                </div>
+                <div class="feature-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                    <div class="icon">🌍</div>
+                    <h4>Communauté</h4>
+                    <p>Utilisateurs actifs et contributeurs</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Contact et Conclusion -->
+        <div class="slide">
+            <h2>🎯 Conclusion</h2>
+            
+            <h3>EduBus : L'Avenir de l'Éducation au Maroc</h3>
+            <p>
+                EduBus représente bien plus qu'une simple plateforme éducative. C'est un <strong>mouvement social</strong> qui vise à transformer l'éducation au Maroc en la rendant plus accessible, plus engageante et plus adaptée aux défis du 21ème siècle.
+            </p>
+
+            <h3>Nos Engagements</h3>
+            <ul class="benefits-list">
+                <li><strong>Accessibilité universelle :</strong> Éducation gratuite et de qualité pour tous</li>
+                <li><strong>Innovation continue :</strong> Évolution constante basée sur les besoins réels</li>
+                <li><strong>Impact mesurable :</strong> Amélioration concrète des résultats scolaires</li>
+                <li><strong>Développement durable :</strong> Solution pérenne et évolutive</li>
+                <li><strong>Ancrage local :</strong> Respect des spécificités culturelles et linguistiques</li>
+            </ul>
+
+            <h3>Rejoignez-nous !</h3>
+            <p style="text-align: center; font-size: 1.2rem; font-weight: bold; color: #667eea; margin: 30px 0;">
+                "Ensemble, transformons l'éducation et construisons l'avenir du Maroc"
+            </p>
+        </div>
+
+        <!-- Contact -->
+        <div class="contact-info">
+            <h3>📞 Contactez-nous</h3>
+            <div class="contact-item">📧 <strong>Email :</strong> AIDPM@gmail.com</div>
+            <div class="contact-item">📱 <strong>Téléphone :</strong> +212 661 57 22 07</div>
+            <div class="contact-item">📘 <strong>Facebook :</strong> /AIDPM</div>
+            <div class="contact-item">📍 <strong>Adresse :</strong> Association Ighil pour le Développement de la Population Montagnarde</div>
+            <div class="contact-item">Kelaa M'gouna BP 129, Maroc</div>
+            <div class="contact-item" style="margin-top: 20px;">
+                🌐 <strong>Plateforme :</strong> <a href="https://edubus-frontend.vercel.app/login" style="color: #63b3ed;">edubus-frontend.vercel.app/login</a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; padding: 20px; color: white; opacity: 0.8;">
+            <p>&copy; 2024 EduBus - Association AIDPM. Tous droits réservés.</p>
+            <p style="font-size: 0.9rem; margin-top: 10px;">
+                "Transformez vos trajets en moments d'apprentissage"
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observer tous les slides
+        document.querySelectorAll('.slide').forEach(slide => {
+            slide.style.opacity = '0';
+            slide.style.transform = 'translateY(30px)';
+            slide.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(slide);
+        });
+
+        // Smooth scroll pour les liens internes
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fonction d'impression
+        function printPresentation() {
+            window.print();
+        }
+
+        // Ajouter un bouton d'impression
+        const printButton = document.createElement('button');
+        printButton.innerHTML = '🖨️ Imprimer';
+        printButton.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+        `;
+        printButton.onclick = printPresentation;
+        document.body.appendChild(printButton);
+    </script>
+</body>
+</html>
